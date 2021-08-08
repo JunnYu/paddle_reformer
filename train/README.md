@@ -1,7 +1,7 @@
 ## 比较训练过程的梯度
 
 为了进行train模式下的精度对齐，我进行了如下修改。
-### （1）修改1-固定随机数
+### （1）修改1-固定随机数，消除随机带来的影响
 reformer/modeling.py Line789部分原本是使用`paddle.randn`生成的随机数为了进行模型对齐，我这边从本地加载同样的`random_rotations`以求最终的结果对齐。
 ```python
         # TODO
@@ -22,7 +22,7 @@ transformers/models/reformer/modeling_reformer.py Line734部分原本是使用`t
 ### （2）修改2-将dropout置为0，为了消除dropout随机带来的影响
 `reformer-crime-and-punishment-64-128/config.json`和`reformer-crime-and-punishment-64-128/model_config.json`中有关`dropout`的我都置为了0！
 
-### （3）缩小`axial_pos_shape`
+### （3）修改3-缩小`axial_pos_shape`，避免我本地OOM
 `reformer-crime-and-punishment-64-128/config.json`和`reformer-crime-and-punishment-64-128/model_config.json`原版的`axial_pos_shape`是`[512,1024]`,
 这么说训练的时候我的输入必须是`[bs,512*1024]`这个形状，这个tensor太长了，我的6G显卡OOM了。为了方便调试，我将其修改成了`[64,128]`。
 
