@@ -35,3 +35,15 @@ class ReformerTokenizer(AlbertEnglishTokenizer):
         spm = try_import("sentencepiece")
         self.sp_model = spm.SentencePieceProcessor()
         self.sp_model.Load(sentencepiece_model_file)
+
+    def build_inputs_with_special_tokens(self, token_ids_0, token_ids_1=None):
+        if token_ids_1 is None:
+            return token_ids_0
+        return token_ids_0 + token_ids_1
+
+    def create_token_type_ids_from_sequences(self,
+                                             token_ids_0,
+                                             token_ids_1=None):
+        if token_ids_1 is None:
+            return len(token_ids_0) * [0]
+        return len(token_ids_0) * [0] + len(token_ids_1 ) * [1]

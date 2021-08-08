@@ -12,7 +12,7 @@ text = "It is a nice day today , I want to go to the park !"
 
 
 o1 = pt_tokenizer.tokenize(text)
-o2 = pt_tokenizer.tokenize(text)
+o2 = pd_tokenizer.tokenize(text)
 
 print(o1)
 print(o2)
@@ -20,7 +20,7 @@ print(o2)
 print("=" * 50)
 
 o1 = pt_tokenizer(text)
-o2 = pt_tokenizer(text)
+o2 = pd_tokenizer(text,return_attention_mask=True)
 
 print(o1)
 print(o2)
