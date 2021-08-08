@@ -2676,6 +2676,7 @@ class ReformerForMaskedLM(ReformerPreTrainedModel):
         pd_config = self.reformer.config
         pd_config.pop("self")
         pd_config = Config(pd_config)
+        self.pd_config = pd_config
         assert (
             not pd_config.is_decoder
         ), "If you want to use `ReformerForMaskedLM` make sure `pd_config.is_decoder=False` for bi-directional self-attention."
