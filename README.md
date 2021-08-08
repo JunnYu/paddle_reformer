@@ -24,7 +24,7 @@ ReformerModel，ReformerForSequenceClassification和ReformerForQuestionAnswering
 python compare_eval.py
 ```
 
-# （3）train模式对齐（额外进行了train模式下，反向传播的梯度对齐）
+# （3）train模式对齐（详细内容参考train文件夹下的`readme`，只要是额外进行了train模式下，前向传播结果对齐和反向传播的梯度对齐）
 ```python
 # 进入train文件夹
 cd train
