@@ -20,7 +20,7 @@ ReformerModel，ReformerForSequenceClassification和ReformerForQuestionAnswering
 # （2）eval模式对齐
 **详细输出请查看日志：compare.log**
 ```python
-# 在GPU和CPU模式下，进行loss和grad的比较
+# 在GPU和CPU模式下，进行loss和hidden_states的比较
 python compare_eval.py
 ```
 
