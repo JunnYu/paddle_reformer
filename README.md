@@ -14,8 +14,8 @@ ReformerModel，ReformerForSequenceClassification和ReformerForQuestionAnswering
 `注`: 由于`ReformerForSequenceClassification`和`ReformerForQuestionAnswering`都使用ReformerModel作为主干部分，因此只需要对齐ReformerModel部分前向传播的权重即可。
 
 # （1）准备
-（1）从 https://huggingface.co/google/ 下载reformer权重pytorch_model.bin放入google下对应的文件夹
-（2）从 https://huggingface.co/junnyu/reformer_paddle 下载转化后的paddle权重放入paddle下对应的文件夹
+- 从 https://huggingface.co/google/ 下载reformer权重pytorch_model.bin放入google下对应的文件夹
+- 从 https://huggingface.co/junnyu/reformer_paddle 下载转化后的paddle权重放入paddle下对应的文件夹
 
 # （2）eval模式对齐
 **详细输出请查看日志：compare.log**
