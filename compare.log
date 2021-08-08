@@ -1,0 +1,147 @@
+compare weights google/reformer-crime-and-punishment on cpu
+Some weights of ReformerModelWithLMHead were not initialized from the model checkpoint at google/reformer-crime-and-punishment and are newly initialized: ['reformer.encoder.layers.5.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.2.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.1.attention.self_attention.self_mask_value_float32', 'reformer.encoder.layers.2.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.5.attention.self_attention.self_mask_value_float32', 'reformer.encoder.layers.1.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.5.attention.self_attention.self_mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.self_mask_value_float32', 'reformer.encoder.layers.0.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.0.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.4.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.self_mask_value_float16', 'reformer.encoder.layers.4.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.5.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.1.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.1.attention.self_attention.self_mask_value_float16']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+compare loss
+mean dif: tensor(1.9073e-06)
+max dif: tensor(1.9073e-06)
+compare hidden_states
+mean dif: tensor(0.)
+max dif: tensor(0.)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(6.4099e-07)
+max dif: tensor(1.0967e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.0701e-06)
+max dif: tensor(2.0981e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.7690e-06)
+max dif: tensor(4.1962e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.2193e-06)
+max dif: tensor(5.7220e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(3.1717e-06)
+max dif: tensor(8.0109e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(3.7268e-06)
+max dif: tensor(0.0001)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==================================================
+compare weights google/reformer-crime-and-punishment on gpu
+Some weights of ReformerModelWithLMHead were not initialized from the model checkpoint at google/reformer-crime-and-punishment and are newly initialized: ['reformer.encoder.layers.5.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.2.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.1.attention.self_attention.self_mask_value_float32', 'reformer.encoder.layers.2.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.5.attention.self_attention.self_mask_value_float32', 'reformer.encoder.layers.1.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.5.attention.self_attention.self_mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.self_mask_value_float32', 'reformer.encoder.layers.0.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.0.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.4.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.3.attention.self_attention.self_mask_value_float16', 'reformer.encoder.layers.4.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.5.attention.self_attention.mask_value_float16', 'reformer.encoder.layers.1.attention.self_attention.mask_value_float32', 'reformer.encoder.layers.1.attention.self_attention.self_mask_value_float16']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+compare loss
+mean dif: tensor(1.9073e-06)
+max dif: tensor(1.9073e-06)
+compare hidden_states
+mean dif: tensor(0.)
+max dif: tensor(0.)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(6.6936e-07)
+max dif: tensor(1.0490e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.0575e-06)
+max dif: tensor(1.7166e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.8967e-06)
+max dif: tensor(2.6703e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.3698e-06)
+max dif: tensor(3.8147e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(3.4162e-06)
+max dif: tensor(8.0109e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(3.9688e-06)
+max dif: tensor(9.1553e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************************************************************************************
+compare weights google/reformer-enwik8 on cpu
+compare loss
+mean dif: tensor(3.8147e-06)
+max dif: tensor(3.8147e-06)
+compare hidden_states
+mean dif: tensor(0.)
+max dif: tensor(0.)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(4.7760e-07)
+max dif: tensor(5.3406e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.7230e-06)
+max dif: tensor(0.0002)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(6.5616e-06)
+max dif: tensor(0.0007)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(7.6995e-06)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(9.8953e-06)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.1571e-05)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.3393e-05)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.5295e-05)
+max dif: tensor(0.0007)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.6957e-05)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.0391e-05)
+max dif: tensor(0.0010)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.1946e-05)
+max dif: tensor(0.0011)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.3561e-05)
+max dif: tensor(0.0011)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==================================================
+compare weights google/reformer-enwik8 on gpu
+compare loss
+mean dif: tensor(3.8147e-06)
+max dif: tensor(3.8147e-06)
+compare hidden_states
+mean dif: tensor(0.)
+max dif: tensor(0.)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(5.9031e-07)
+max dif: tensor(6.1035e-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.0193e-06)
+max dif: tensor(0.0002)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(7.1001e-06)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(8.0763e-06)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.0077e-05)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.1695e-05)
+max dif: tensor(0.0009)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.3466e-05)
+max dif: tensor(0.0009)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.5328e-05)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(1.7025e-05)
+max dif: tensor(0.0008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.0443e-05)
+max dif: tensor(0.0010)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.2024e-05)
+max dif: tensor(0.0009)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mean dif: tensor(2.3902e-05)
+max dif: tensor(0.0010)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
