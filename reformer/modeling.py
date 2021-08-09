@@ -2127,8 +2127,8 @@ class ReformerPreTrainedModel(PretrainedModel):
     def dummy_inputs(self):
         DUMMY_INPUTS = [[7, 6, 0, 0, 1], [1, 2, 3, 0, 0], [0, 0, 0, 4, 5]]
         DUMMY_MASK = [[1, 1, 1, 1, 1], [1, 1, 1, 0, 0], [0, 0, 0, 1, 1]]
-        input_ids = paddle.to_tensor(DUMMY_INPUTS)
-        input_mask = paddle.to_tensor(DUMMY_MASK)
+        input_ids = paddle.to_tensor(DUMMY_INPUTS, dtype=paddle.int64)
+        input_mask = paddle.to_tensor(DUMMY_MASK, dtype=paddle.int64)
         dummy_inputs = {
             "input_ids": input_ids,
             "attention_mask": input_mask,
