@@ -939,12 +939,7 @@ class LSHSelfAttention(nn.Layer, EfficientAttentionMixin):
         elif do_cached_attention and query_key_dots.ndim > 4:
             key_value_bucket_idx = sorted_bucket_idx_per_hash
             query_bucket_idx = (
-                key_value_bucket_idx.new_ones(
-                    key_value_bucket_idx.shape[:-1]
-                    + [
-                        1,
-                    ]
-                )
+                paddle.ones(shape=key_value_bucket_idx.shape[:-1] + [1], dtype=key_value_bucket_idx.dtype)
                 * key_value_bucket_idx.max()
             )
         elif do_cached_attention and query_key_dots.ndim <= 4:
