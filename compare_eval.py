@@ -57,6 +57,7 @@ def test_cpu(model_path):
 
 
 def test_gpu(model_path):
+    paddle.set_device("gpu")
     print(f"compare weights {model_path} on gpu")
     pd_model = PDReformerModelWithLMHead.from_pretrained(
         model_path.replace("google", "paddle")
