@@ -75,6 +75,7 @@ def test_cpu():
 
 def test_gpu():
     # 固定buckets
+    paddle.set_device("gpu")
     create_buckets()
     pd_model = PDReformerModelWithLMHead.from_pretrained(
         "reformer-crime-and-punishment-64-128"
