@@ -2,6 +2,7 @@
 问题：精度误差为啥那么大？
 答：paddle的框架问题！
 
+```python
 对于12层的模型。
 使用预训练权重误差会达到（12_layer.txt文件最后一行）
 mean dif: tensor(2.6582e-05) 
@@ -9,7 +10,7 @@ max dif: tensor(0.0009)
 而使用随机初始化的权重，误差正常！（random_12_layer.txt文件最后一行）
 mean dif: tensor(8.7896e-07) 
 max dif: tensor(4.7684e-06)
-
+```
 
 
 
@@ -584,11 +585,11 @@ huggingface版本 https://huggingface.co/google/reformer-enwik8/tree/main
 由于这个有12层，行数太多，请自行进入`weights/random_12_layer.txt`查看结果，分析同上！
 最终模型最大误差max dif: tensor(4.7684e-06)！！！！！！！
 
-
+```python
 那么问题来了，为什么随机初始化的跟加载预训练权重的计算出来的结果误差那么大？
 （注：我确保模型权重转化是正确的,不然平均误差不会这么点！）
 可能原因：
 -（1）框架问题！！！！
 -（2）框架问题！！！！
 -（3）框架问题！！！！
-
+```
