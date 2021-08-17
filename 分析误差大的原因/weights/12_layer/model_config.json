@@ -57,7 +57,8 @@
             "use_cache": true,
             "tie_word_embeddings": false,
             "use_return_dict": true,
-            "init_class": "ReformerModel"
+            "init_class": "ReformerModel",
+            "classifier_dropout": null
         }
     ],
     "init_class": "ReformerModelWithLMHead"

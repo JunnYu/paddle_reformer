@@ -2188,6 +2188,7 @@ class ReformerPreTrainedModel(PretrainedModel):
             ],
             "use_cache": True,
             "use_return_dict": True,
+            "classifier_dropout":None
         },
         "reformer-crime-and-punishment": {
             "return_dict": True,
@@ -2232,6 +2233,7 @@ class ReformerPreTrainedModel(PretrainedModel):
             "attn_layers": ["local", "lsh", "local", "lsh", "local", "lsh"],
             "use_cache": True,
             "use_return_dict": True,
+            "classifier_dropout":None
         },
     }
 

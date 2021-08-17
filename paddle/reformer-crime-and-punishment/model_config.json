@@ -58,6 +58,7 @@
             "use_cache": true,
             "tie_word_embeddings": false,
             "use_return_dict": true,
+            "classifier_dropout": null,
             "init_class": "ReformerModel"
         }
     ],
