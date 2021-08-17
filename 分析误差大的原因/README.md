@@ -12,6 +12,65 @@ mean dif: tensor(8.7896e-07)
 max dif: tensor(4.7684e-06)
 ```
 
+```python
+class ReformerLayer(nn.Layer):
+    def forward(
+        self,
+        prev_attn_output, # 上一层attn的输出
+        hidden_states,  # 上一层的输出
+        attention_mask=None,
+        num_hashes=None,
+        past_buckets_states=None,
+        use_cache=False,
+        orig_sequence_length=None,
+        output_attentions=False,
+    ):
+        with paddle.no_grad():
+            # every forward pass we sample a different seed
+            # for dropout and save for forward fn in backward pass
+            # to have correct dropout
+            if self.training:
+                self._init_attention_seed()
+
+            attn_outputs = self.attention(
+                hidden_states=hidden_states,
+                attention_mask=attention_mask,
+                num_hashes=num_hashes,
+                past_buckets_states=past_buckets_states,
+                use_cache=use_cache,
+                orig_sequence_length=orig_sequence_length,
+                output_attentions=output_attentions,
+            )
+            attn_output = attn_outputs.hidden_states
+
+            attn_output = prev_attn_output + attn_output
+
+            # free memory
+            del prev_attn_output
+
+            # every forward pass we sample a different seed
+            # for dropout and save seed for forward fn in backward
+            # to have correct dropout
+            if self.training:
+                self._init_feed_forward_seed()
+            # Y_2 = X_2 + g(Y_1)
+            ！！！！！！！这里
+            hidden_states = hidden_states + self.feed_forward(attn_output)
+
+        return ReformerOutput(
+            attn_output=attn_output,
+            hidden_states=hidden_states,
+            attention_probs=attn_outputs.attention_probs,
+            buckets=attn_outputs.buckets,
+        )
+```
+```python
+通过观察代码可知，ReformerLayer的forward函数使用到了上一层attention的输出prev_attn_output和上一层输出的hidden_states。
+由于上一层输出的hidden_states的误差在第二层的时候就达到了最大误差10-4级别。
+mean dif: tensor(3.2313e-06)
+max dif: tensor(0.0001)
+因此如果再进行hidden_states = hidden_states + self.feed_forward(attn_output)相加的操作，误差会不断的累积，如此下来重复个10多层，误差当然越来越大！
+```
 
 
 # 分析过程
