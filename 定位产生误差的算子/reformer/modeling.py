@@ -121,10 +121,7 @@ def torchlogsumexp(query_key_dots, axis=-1, keepdim=True):
     out = torch.logsumexp(x, dim=axis, keepdim=keepdim)
     return paddle.to_tensor(out.cpu().numpy())
 
-def torchexp(x):
-    x = torch.tensor(x.cpu().numpy()).cuda()
-    out = torch.exp(x)
-    return paddle.to_tensor(out.cpu().numpy())
+
 
 def torchsum(x,axis):
     x = torch.tensor(x.cpu().numpy()).cuda()
@@ -785,7 +782,7 @@ class LSHSelfAttention(nn.Layer, EfficientAttentionMixin):
                     self.attention_head_size,
                 ).unsqueeze(-1)
 
-                probs_vectors = torchexp(
+                probs_vectors = paddle.exp(
                     logits - torchlogsumexp(logits, axis=2, keepdim=True)
                 )
                 # 60
@@ -1105,7 +1102,7 @@ class LSHSelfAttention(nn.Layer, EfficientAttentionMixin):
 
         logits = torchlogsumexp(query_key_dots, axis=-1, keepdim=True)
         # dots shape is `[batch_size, num_attn_heads, num_hashes * seq_len // chunk_length, chunk_length, chunk_length * (1 + num_chunks_before + num_chunks_after)]`
-        attention_probs = torchexp(query_key_dots - logits)
+        attention_probs = paddle.exp(query_key_dots - logits)
 
         # free memory
         del query_key_dots
@@ -1618,7 +1615,7 @@ class LocalSelfAttention(nn.Layer, EfficientAttentionMixin):
         logits = torchlogsumexp(query_key_dots, axis=-1, keepdim=True)
         # 13
         save_data(logits)
-        attention_probs = torchexp(query_key_dots - logits)
+        attention_probs = paddle.exp(query_key_dots - logits)
         # 14
         save_data(attention_probs)
         # free memory

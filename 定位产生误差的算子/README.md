@@ -1,5 +1,11 @@
 # 问题：
 GPU环境下。paddle.nn.Linear与torch.nn.Linear误差太大（也就是paddle.matmul与torch.matmul无法对齐）。
+存在误差的输出如果后面接了个`nn.Linear`或`paddle.matmul`误差会突然变得很大！！
+
+<p align="center">
+    <img src="figure/example.png" width="100%" />
+</p>
+
 例子1：(这个是我在检查错误的过程中保存的中间变量及对应的权重，详情请进入`example.ipynb`运行查看结果)
 ```python
 # 加载我保存的变量，确保都在GPU环境下。
@@ -98,9 +104,8 @@ print(np.all(np.isclose(o1,o2 , atol=0, rtol=1.e-6)))
 - (1) 使用同种layer norm计算方法，消除layer norm产生的误差。
 - (2) 使用torch.matmul代替paddle.matmul消除nn.Linear计算时产生的误差。
 - (3) paddle.sum 替换成 torch.sum
-- (4) paddle.exp 替换成 torch.exp
-- (5) paddle代码中_len_and_dim_norm计算方式替换成 pytorch中的计算方式
-- (6) paddle代码中torchlogsumexp计算方式替换成pytorch中的计算方式
+- (4) paddle代码中_len_and_dim_norm计算方式替换成 pytorch中的计算方式
+- (5) paddle代码中torchlogsumexp计算方式替换成pytorch中的计算方式
 
 ```python
 
@@ -148,10 +153,6 @@ def torchlogsumexp(query_key_dots, axis=-1, keepdim=True):
     out = torch.logsumexp(x, dim=axis, keepdim=keepdim)
     return paddle.to_tensor(out.cpu().numpy())
 
-def torchexp(x):
-    x = torch.tensor(x.cpu().numpy()).cuda()
-    out = torch.exp(x)
-    return paddle.to_tensor(out.cpu().numpy())
 
 def torchsum(x,axis):
     x = torch.tensor(x.cpu().numpy()).cuda()
