@@ -3,7 +3,7 @@ GPU环境下。paddle.nn.Linear与torch.nn.Linear误差太大（也就是paddle.
 存在误差的输出如果后面接了个`nn.Linear`或`paddle.matmul`误差会突然变得很大！！
 
 <p align="center">
-    <img src="figure/example.png" width="100%" />
+    <img src="figure/example.png" width="50%" />
 </p>
 
 例子1：(这个是我在检查错误的过程中保存的中间变量及对应的权重，详情请进入`example.ipynb`运行查看结果)
