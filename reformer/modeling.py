@@ -1132,9 +1132,7 @@ class LSHSelfAttention(nn.Layer, EfficientAttentionMixin):
             relevant_bucket_idx, sequence_length
         )
 
-        relevant_bucket_idx_chunk = bucket_idx[
-            tuple(relevant_bucket_idx_chunk.transpose(perm=[1, 0]))
-        ]
+        relevant_bucket_idx_chunk = bucket_idx.gather_nd(relevant_bucket_idx_chunk)
 
         # adapt bucket_idx for batch and hidden states for index select
         bucket_idx_batch_offset = sequence_length * (
