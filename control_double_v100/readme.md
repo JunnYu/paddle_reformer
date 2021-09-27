@@ -4,6 +4,7 @@
 - V100 32G
 - 系统cuda 10.2 cudnn7.6
 - paddle 2.1.3 cuda10.2   pytorch 1.9.1 cuda10.2
+
 （1）准备
 - 进入`cd weights/12_layer`
 - `wget https://huggingface.co/google/reformer-enwik8/resolve/main/pytorch_model.bin`  #下载权重
